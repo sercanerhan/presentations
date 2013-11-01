@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Waag Society</title>
+		<title>Hackathonist</title>
 
 		<meta name="description" content="Waag Society - Institute for Art, Science and Technology">
 		<meta name="author" content="Waag Society">
@@ -28,86 +28,201 @@
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+    <style>
+      .reveal section img {
+        border: none;
+        box-shadow: none;
+      }
+    </style>
 	</head>
 
 	<body>
 
 		<div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Titel</h1>
-					<h2>Subtitel</h2>
-					<h3>BLablabla</h3>
+					<h1>CitySDK API</h1>
+					<p>Bert Spaan - Waag Society</p>
 				</section>
         
 				<section>
-					<h2>Slide</h2>
-					<h3>BLablabla</h3>
-					<ul>
-						<li>1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-					</ul>
+					<h2>Waag Society</h2>
+          <img src="waag-building.jpg" />
 				</section>
         
 				<section>
-					<h2>Plaatje</h2>
-					<h3>BLablabla</h3>
-					<ul>
-						<li>1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-					</ul>
+					<h2>CitySDK</h2>
+					<h3>Read/Write City</h3>
+					<p>Read and write data to objects in city</p>
+				</section>        
+        
+				<section>
+					<h2>Concept</h2>
+					<h3>nodes, data, layers</h3>
+          <embed src="nodes.svg" type="image/svg+xml" />
 				</section>
         
 				<section>
-					<h2>Code</h2>
-					<h3>BLablabla</h3>
-					<ul>
-						<li>1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-					</ul>
+					<h2>Concept</h2>
+					<p>ptstops, ptlines</p>
 				</section>
         
-				<section>
-					<h2>Markdown</h2>
-					<h3>BLablabla</h3>
-					<ul>
-						<li>1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-					</ul>
-				</section>
         
 				<section>
-					<h2>Video</h2>
-					<h3>BLablabla</h3>
-					<ul>
-						<li>1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-					</ul>
+          <img src="stadje-01.png" />
 				</section>
-        
 				<section>
-					<h2>Einde</h2>
-					<h3>BLablabla</h3>
-					<ul>
-						<li>1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-					</ul>
+          <img src="stadje-02.png" />
+				</section>
+				<section>
+          <img src="stadje-03.png" />
+				</section>
+				<section>
+          <img src="stadje-04.png" />
+				</section>
+				<section>
+          <img src="stadje-05.png" />
+				</section>
+				<section>
+          <img src="stadje-06.png" />
+				</section>
+				<section>
+          <img src="stadje-07.png" />
+				</section>
+				<section>
+          <img src="arch.png" />
 				</section>
 
+				<section data-background="osm.png">
+				</section>
+
+
+				<section>
+					<h2>API site</h2>
+					<p><a href="http://apicitysdk.ibb.gov.tr/">http://apicitysdk.ibb.gov.tr/</a></p>
+				</section>        
+         
+				<section>
+					<h2>Developer's site</h2>
+					<p><a href="http://devcitysdk.ibb.gov.tr/">http://devcitysdk.ibb.gov.tr/</a></p>
+				</section>
+        
+				<section>
+					<h2>CMS</h2>
+          <p>Add layers, add data</p>
+					<p><a href="http://cmscitysdk.ibb.gov.tr/">http://cmscitysdk.ibb.gov.tr/</a></p>
+				</section>                
+
+				<section>        
+					<h2>HTTP API</h2>
+          <p>GET/PUT requests to modify nodes and data</p>
+          <p>Documentation: <a href="http://devcitysdk.ibb.gov.tr/">http://devcitysdk.ibb.gov.tr/</a>
+				</section>           
+          
+				<section>        
+          <h2>Ruby gem</h2>
+          <pre><code>gem install citysdk</code></pre>
+				</section>        
+                
+				<section>
+					<h2>Write data to existing node</h2>
+          <pre><code data-trim contenteditable>
+require 'citysdk'
+
+email = ARGV[1]
+password = ARGV[2]
+api = CitySDK::API.new("apicitysdk.ibb.gov.tr")
+api.authenticate(email, passw)
+
+data = {
+  data: {
+    :type => "43",
+    :date => "2013-11-01",
+    :from => "gtfs.stop.istb.91",
+    :to => "gtfs.stop.istb.87"
+  }
+}
+@api.put("gtfs.line.2.t1-0/hackathonist.team1.construction", data)
+          </code></pre>
+				</section>
+
+				<section>
+					<h2>Create new node(s)</h2>
+          <p>Use bulk API: <a href="http://devcitysdk.ibb.gov.tr/write">http://devcitysdk.ibb.gov.tr/write</a></p>
+        </section>
+        
+				<section>        
+					<h2>Sample applications</h2>
+				</section>         
+        
+				<section>        
+					<h2>Now</h2>
+          <p>JavaScript application showing nearest available public transport</p>
+          <ul>
+            <li><a href="http://dev.citysdk.waag.org/now/">http://dev.citysdk.waag.org/now/</a></li>
+            <li><a href="https://github.com/waagsociety/citysdk/tree/master/demos/now">On GitHub</a></li>
+          </ul>
+				</section>        
+
+				<section>        
+					<h2>Buildings map</h2>
+          <p>Buildings by year of construction - <a href="http://dev.citysdk.waag.org/buildings/">dev.citysdk.waag.org/buildings</a></p>
+<iframe width="960" height="720" src="http://www.youtube.com/embed/7kk6MO_11LA" frameborder="0" allowfullscreen></iframe>
+				</section> 
+
+				<section>        
+					<h2>Open Data Globe</h2>
+          <a href="http://dev.citysdk.waag.org/visualisation/">dev.citysdk.waag.org/visualisation</a>
+          <iframe width="853" height="480" src="http://www.youtube.com/embed/-9Yjs3RGT6s" frameborder="0" allowfullscreen></iframe>   
+				</section> 
+
+				<section>        
+					<h2>Citymarker</h2>
+          <img src="citymarker.png" width="40%"/>
+        </section>
+        
+				<section>        
+					<h2>Citymarker</h2>
+          <ul>
+            <li>Uses CitySDK API - read and write data</li>
+            <li>PHP and iOS code</li>
+            <li><a href="https://github.com/2coolmonkeys/citymarker">https://github.com/2coolmonkeys/citymarker</a></li>
+          </ul>
+				</section> 
+
+				<section>        
+					<h2>Traze</h2>        
+          <iframe src="https://player.vimeo.com/video/74889947" width="1000" height="562" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </section>
+        
+				<section>        
+					<h2>Traze</h2>
+					<p>iOS library for CitySDK</p>
+          <ul>
+            <li><a href="http://www.trazeapp.com/">http://www.trazeapp.com/</a></li>
+            <li><a href="https://github.com/maggix/citysdk-client-ios">https://github.com/maggix/citysdk-client-ios</a></li>
+          </ul>
+				</section>         
+                
+				<section>
+					<h2>Accounts</h2>
+          <p>15 teams</p>
+          <pre><code data-trim contenteditable>  
+nr = 1                    
+email = "team#{nr}@hackathonist.com"
+password = "Team#{nr}.hackathonist"
+
+# team1@hackathonist.com
+# Team1.hackathonist
+          </code></pre>
+				</section>
+
+				<section>
+					<h2>Thanks</h2>
+          <p><a href="mailto:bert@waag.org">bert@waag.org</a></p>
+          <p><a href="http://bertspaan.nl/presentations/hackathonist/">bertspaan.nl/presentations/hackathonist</a></p>
+				</section>
 
 			</div>
 
