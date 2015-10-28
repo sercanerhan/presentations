@@ -1329,3 +1329,32 @@ html:-moz-full-screen-ancestor {
 
 .zoomed .reveal .roll span:after {
   visibility: hidden; }
+#left {
+    width:450px;
+    height:550px;
+	float:left;
+    
+}
+
+#right {
+    width:450px;
+    height:450px;
+	float:right;
+    
+}
+
+#blue_box {
+    position: relative;
+    background:blue;
+    width:500px;
+    height:300px;
+    padding:10px;
+}  
+  
+#divider{
+    position:absolute;
+    left:50%;
+    top:30%;
+    bottom:10%;
+    border-left:1px solid white;
+}
