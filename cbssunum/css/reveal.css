@@ -1354,7 +1354,7 @@ html:-moz-full-screen-ancestor {
 #divider{
     position:absolute;
     left:50%;
-    top:30%;
-    bottom:10%;
+    top:20%;
+    bottom:20%;
     border-left:1px solid white;
 }
