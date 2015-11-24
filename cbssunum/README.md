@@ -1,2 +1,0 @@
-# CBSSunum
-CBS Sunumu
